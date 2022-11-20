@@ -6,14 +6,17 @@
 #include <SPI.h>
 #include <Adafruit_BMP280.h>
 #include <ML8511.h>
+#include "rain_sensor.h"
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
 #define topico "dasfkljasdiovfgjoadbg0oadbhgjoasdgoasdhno"
 
-// ML8511 uv_sensor(uv, uv_ref);
+ML8511 uv_sensor(uv);
 
 DHT22 dht22;
+
+RainSensor rainSensor(rain_a0);
 
 Adafruit_BMP280 bmp;
 
@@ -32,9 +35,9 @@ void setup()
 {
   Serial.begin(112500);
 
-  // uv_sensor.enable();
+  // uv_sensor.enable(); conectado na 3.3 sempra vai estar enable, independente irmão
 
-  dht22.setup(dht22_pin);
+  dht22.setup(dht22_out);
   dht22.onData([](float humid, float temp)
                { Serial.printf("Temp: %.1f°C\nHumid: %.1f%%\n", temp, humid); });
 
@@ -46,8 +49,8 @@ void setup()
 
   // default settings
   status = bmp.begin();
-  // You can also pass in a Wire library object like &Wire2
-  // status = bme.begin(0x76, &Wire2)
+  
+  
   if (!status)
   {
     Serial.println("Could not find a valid BME280 sensor, check wiring, address, sensor ID!");
@@ -61,15 +64,16 @@ void setup()
       delay(10);
   }
 
-  // Serial.println("-- Default Test --");
+  Serial.println("-- Default Test --");
   // fim sessao erros bmp280
 }
 
 void loop()
 {
-  //      dht22.read(); dispara o callback;
-  //      bmpPrintValues();
+  //dht22.read(); //dispara o callback;
+  //      bmpPrintValues(); 
   //      uv_sensor.getUV();
+  rainSensor.isRaining();
 
   client.loop();
 }

@@ -1,0 +1,12 @@
+{
+    "temperature": "%f",
+    "humidity": "%f",
+    "pressure": "%f",
+    "uv": "%f",
+    "rain": "%f",
+    "anemometer": "%f",
+    "wind_vane_north": "%f",
+    "wind_vane_south": "%f",
+    "wind_vane_west": "%f",
+    "wind_vane_east": "%f"
+}
