@@ -1,12 +1,17 @@
-#include "rain_sensor.h"
+#include "rain_sensor.hpp"
 
+
+void RainSensor::begin(){
+   
+}
 
 String RainSensor::isRaining()
 {
     String result;
 
-    int sensorReading = analogRead(pin);
-
+    int sensorReading = analogRead(this->pin);
+    Serial.print("#######");
+    Serial.println(sensorReading);
     int range = map(sensorReading, sensorMin, sensorMax, 0, 3);
 
     switch (range)

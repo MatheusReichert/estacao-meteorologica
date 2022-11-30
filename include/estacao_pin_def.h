@@ -1,32 +1,32 @@
 /** @file STATION_pin_def.h
  * 
- * @brief definicao dos pinos da STATION
+ * @brief Pinagem dos sensores da estção meteorologica
  *
- * @par       
  * 
  */ 
 
 #ifndef STATION_PIN_DEF_H
 #define STATION_PIN_DEF_H
 
-#define dht22_out GPIO_NUM_38
+#define DHTTYPE DHT22 
+#define DHT_OUT GPIO_NUM_2
 
-#define BMP_SDA GPIO_NUM_15
-#define BMP_SCL GPIO_NUM_4
+#define UV_OUT GPIO_NUM_37
 
-#define uv GPIO_NUM_37
+#define RAIN_ANALOG_OUT GPIO_NUM_32
 
-#define rain_a0 GPIO_NUM_34
-#define rain_d0 GPIO_NUM_36
+#define ANEMOMETER_OUT GPIO_NUM_35
 
-#define anemometer GPIO_NUM_35
+
+#define BMP_SDA 21                                                                //Definição dos pinos I2C
+#define BMP_SCL 22
 
 #define wind_vane_north GPIO_NUM_12
 #define wind_vane_south GPIO_NUM_13
 #define wind_vane_west GPIO_NUM_17
 #define wind_vane_east GPIO_NUM_23
 
-#define pluviometer 22
+#define RAIN_GAUGE_OUT GPIO_NUM_25
 
 #endif /* STATION_PIN_DEF_H */
 

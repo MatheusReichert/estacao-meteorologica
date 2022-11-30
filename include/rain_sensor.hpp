@@ -17,11 +17,12 @@ class RainSensor {     // The class
     RainSensor(int espPin) {     // Constructor
       this->pin = espPin;
     };
+    void begin();
     String isRaining();
     private:
     int pin;
-    const int sensorMin = 0;     // sensor minimum
-    const int sensorMax = 1024;  // sensor maximum
+    const int sensorMin = 800;     // sensor minimum
+    const int sensorMax = 4096;  // sensor maximum
 };
 
 #endif /* RAIN_SENSOR_H */

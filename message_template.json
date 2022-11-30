@@ -1,12 +1,13 @@
 {
-    "temperature": "%f",
-    "humidity": "%f",
-    "pressure": "%f",
-    "uv": "%f",
-    "rain": "%f",
-    "anemometer": "%f",
-    "wind_vane_north": "%f",
-    "wind_vane_south": "%f",
-    "wind_vane_west": "%f",
-    "wind_vane_east": "%f"
-}
+    "temperature":"%f",
+    "humidity":"%f",
+    "pressure":"%f",
+    "uv":"%f",
+    "rain":"%s",
+    "anemometer_state":"%i",
+    "rain_gauge_state":"%i",
+    "wind_vane_north_state":"%i",
+    "wind_vane_south_state":"%i",
+    "wind_vane_west_state":"%i",
+    "wind_vane_east_state":"%i"
+ }
