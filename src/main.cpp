@@ -8,10 +8,7 @@
 #include <Adafruit_BMP085.h>
 #include "rain_sensor.hpp"
 
-extern "C"
-{
-#include "rain_gauge.h"
-}
+
 #include "heltec.h"
 
 #define topico "dasfkljasdiovfgjoadbg0oadbhgjoasdgoasdhno"
@@ -58,7 +55,7 @@ void setup()
 {
   Heltec.begin(false, false, true, false);
   Serial.begin(112500);
-
+  
   pinMode(wind_vane_east, INPUT);
   pinMode(wind_vane_north, INPUT);
   pinMode(wind_vane_south, INPUT);
@@ -69,8 +66,6 @@ void setup()
   pinMode(ANEMOMETER_OUT, INPUT);
 
   uv_sensor.setVoltsPerStep(3.3, 4095);
-
-  beginGauge(17, mmTotal);
 
   rainSensor.begin();
 
