@@ -3,7 +3,7 @@
 ## Equipe:
 
 <ul>
-<li>Andrew Carvalho Dellamea</li>
+<li>Andrew de Carvalho Dellamea</li>
 <li>Brendha Iara Gruber de Lima</li>
 <li>Felipe Alves Santana</li>
 <li>Matheus Ernan Reichert</li>
