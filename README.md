@@ -13,7 +13,7 @@
 
 <strong>Objetivo do projeto</strong>: Construção de uma estação meteorologica autonoma que mandam seus dados para um servidor MQTT por meio de comunicação sem fio.
 
-<strong>Nosso projeto contam com sensores de:</strong>
+<strong>Nosso projeto conta com sensores de:</strong>
 
 <ul>
 <li>🚰 Pluviosidade</li>
