@@ -11,7 +11,7 @@
 
 ## Projeto desenvolvido na disciplina de Sistemas Embarcados **📊**
 
-<strong>Objetivo do projeto</strong>: Construção de uma estação meteorológica autônoma que mandam seus dados para um servidor MQTT por meio de comunicação sem fio.
+<strong>Objetivo do projeto</strong>: Construção de uma estação meteorológica autônoma que manda seus dados para um servidor MQTT por meio de comunicação sem fio.
 
 <strong>Nosso projeto conta com sensores de:</strong>
 
@@ -21,7 +21,7 @@
 <li>🌬️ Velocidade dos ventos</li>
 <li>☢️ Radiação Ultra violeta</li>
 <li>💨 Pressão</li>
-<li>🌡️Temperatura</li>
+<li>🌡️ Temperatura</li>
 <li>💧 Umidade</li>
 <li>☔ Chuva</li>
 </ul>
