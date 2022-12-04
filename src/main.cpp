@@ -3,9 +3,9 @@
 #include <esp32DHT.h>      // https://github.com/bertmelis/esp32DHT
 #include "EspMQTTClient.h" // https://github.com/plapointe6/EspMQTTClient
 #include <Wire.h>
-#include <SPI.h>
-#include <ML8511.h>
-#include <Adafruit_BMP085.h>
+#include <SPI.h>            
+#include <ML8511.h>         // https://github.com/RobTillaart/ML8511
+#include <Adafruit_BMP085.h>  // https://github.com/adafruit/Adafruit-BMP085-Library
 #include "rain_sensor.hpp"
 
 
