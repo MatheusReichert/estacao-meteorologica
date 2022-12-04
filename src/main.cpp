@@ -11,9 +11,10 @@
 
 #include "heltec.h"
 
+// Topico para onde sera enviada a mensagem com os dados dos sensores
 #define topico "dasfkljasdiovfgjoadbg0oadbhgjoasdgoasdhno"
 
-
+// Inicializacao de variaveis
 float humidade = 0.0f;
 float temperatura = 0.0f;
 float uvLevel = 0.0f;
@@ -30,6 +31,7 @@ int state_wind_vane_east = 0;
 
 String rainStatus = "";
 
+//Inicializacao dos objetos das bibliotecas
 ML8511 uv_sensor(UV_OUT);
 
 DHT22 dht22;
@@ -37,8 +39,6 @@ DHT22 dht22;
 Adafruit_BMP085 bmp;
 
 RainSensor rainSensor(RAIN_ANALOG_OUT);
-
-float *mmTotal;
 
 EspMQTTClient client(
     "Hackerman",
@@ -53,6 +53,7 @@ void onConnectionEstablished()
 
 void setup()
 {
+  // Parametros iniciais e definicao de pinos
   Heltec.begin(false, false, true, false);
   Serial.begin(112500);
   
@@ -91,10 +92,12 @@ void setup()
 
 void loop()
 {
+  // Coleta os valores dos sensores 
   dht22.read();
   uvLevel = uv_sensor.getUV();
   rainStatus = rainSensor.isRaining();
   altitude = bmp.readAltitude();
+
   state_anemometer = digitalRead(ANEMOMETER_OUT);
 
   state_rain_gauge = digitalRead(RAIN_GAUGE_OUT);
@@ -104,15 +107,15 @@ void loop()
   state_wind_vane_west = digitalRead(wind_vane_west);
   state_wind_vane_east = digitalRead(wind_vane_east);
 
+  // Transforma os valores coletados em uma mensagem
   char *template_msg = "{\r\n\"temperature\":\"%f\",\r\n\"humidity\":\"%f\",\r\n\"pressure\":\"%f\",\r\n\"uv\":\"%f\",\r\n\"rain\":\"%s\",\r\n\"anemometer_state\":\"%i\",\r\n\"rain_gauge_state\":\"%i\",\r\n\"wind_vane_north_state\":\"%i\",\r\n\"wind_vane_south\":\"%i\",\r\n\"wind_vane_west\":\"%i\",\r\n\"wind_vane_east\":\"%i\"\r\n}";
   char buffer[500];
 
   snprintf(buffer, 500, template_msg, temperatura, humidade, altitude, uvLevel, rainStatus, state_anemometer, state_rain_gauge, state_wind_vane_north, state_wind_vane_south, state_wind_vane_west, state_wind_vane_east);
 
+  // Envia a mesagem para o serviço de mqtt
   client.publish(topico, buffer);
-
-  Serial.println(analogRead(UV_OUT));
-
   client.loop();
+  // Delay de 500 ms
   vTaskDelay(pdMS_TO_TICKS(1000));
 }
