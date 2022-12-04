@@ -1,6 +1,6 @@
 # Estação Meteorológica com ESP32   ☁️🌧☀️
 
-## Equipe:
+## Equipe 🤖
 
 <ul>
 <li>Andrew de Carvalho Dellamea</li>
@@ -26,7 +26,7 @@
 <li>☔ Chuva</li>
 </ul>
 
-### Bibliotecas utilizadas no projeto:
+### Bibliotecas utilizadas no projeto 💻
 
 <ul>
 <li><a href="https://github.com/bertmelis/esp32DHT">esp32DHT</a></li>
